@@ -108,7 +108,7 @@ export const NB_CORE_PROVIDERS = [
       NbPasswordAuthStrategy .setup({
         name: 'email', 
        
-        baseEndpoint: 'http://localhost:8081/api',
+        baseEndpoint: 'http://localhost:8080/api',
         login: {
           endpoint: '/user/login',
           method: 'post',
