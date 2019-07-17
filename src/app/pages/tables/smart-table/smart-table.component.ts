@@ -9,6 +9,7 @@ import { SmartTableData } from '../../../@core/data/smart-table';
   styleUrls: ['./smart-table.component.scss'],
 })
 export class SmartTableComponent {
+  smartTable: SmartTableComponent;
 
   settings = {
     add: {
@@ -29,6 +30,7 @@ export class SmartTableComponent {
       id: {
         title: 'ID',
         type: 'number',
+        
       },
       firstName: {
         title: 'First Name',
@@ -58,8 +60,11 @@ export class SmartTableComponent {
   constructor(private service: SmartTableData) {
     const data = this.service.getData();
     this.source.load(data);
+     
   }
-
+  addInput(event): void { 
+  alert("check")
+}
   onDeleteConfirm(event): void {
     if (window.confirm('Are you sure you want to delete?')) {
       event.confirm.resolve();
@@ -67,4 +72,18 @@ export class SmartTableComponent {
       event.confirm.reject();
     }
   }
+  // onCreateConfirm(event): void {
+  //   if (window.confirm('Are you sure you want to delete?')) {
+  //     event.confirm.resolve(event.newData);
+  //   } else {
+  //     event.confirm.reject();
+  //   }
+  // }
+  // onEditConfirm(event): void {
+  //   if (window.confirm('Are you sure you want to delete?')) {
+  //     event.confirm.resolve(event.newData);
+  //   } else {
+  //     event.confirm.reject();
+  //   }
+  // }
 }

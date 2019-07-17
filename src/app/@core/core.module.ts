@@ -107,11 +107,19 @@ export const NB_CORE_PROVIDERS = [
     strategies: [
       NbPasswordAuthStrategy .setup({
         name: 'email', 
-       
-        baseEndpoint: 'http://localhost:8080/api',
+        token: {
+          class: NbAuthJWTToken,
+          key: 'token', // this parameter tells where to look for the token
+
+        },
+        baseEndpoint: '/api',
         login: {
           endpoint: '/user/login',
           method: 'post',
+          redirect: {
+            success: '/pages',
+            failure: '',
+            }
         },
         register: {
        
